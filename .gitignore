@@ -3,3 +3,9 @@ venv
 staticfiles
 .env
 db.sqlite3
+
+\.DS_Store
+
+*.xml
+
+*.iml
