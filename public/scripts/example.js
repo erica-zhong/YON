@@ -141,12 +141,7 @@ var CommentForm = React.createClass({
       value={this.state.author}
       onChange={this.handleAuthorChange}
       />
-          <input
-              type="text"
-              placeholder="Access Code"
-              value={this.state.text}
-              onChange={this.handleTextChange}
-          />
+
           <input type="submit" value="Start" />
           </form> : ""}
 
