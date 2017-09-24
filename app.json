@@ -1,16 +1,13 @@
 {
-  "name": "Start on Heroku: Python",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
-  "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
-  "keywords": ["python", "django" ],
-  "addons": [ "heroku-postgresql" ],
-  "environments": {
-    "test": {
-      "scripts": {
-        "test-setup": "python manage.py collectstatic --noinput",
-        "test": "python manage.py test"
-      }
-    }
+  "name": "React Tutorial Server",
+  "description": "Code from the React tutorial",
+  "keywords": [ "react", "reactjs", "tutorial" ],
+  "repository": "https://github.com/reactjs/react-tutorial",
+  "logo": "https://facebook.github.io/react/img/logo.svg",
+  "website": "http://facebook.github.io/react/docs/tutorial.html",
+  "success_url": "/",
+  "env" : {
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs.git"
   }
 }
+
