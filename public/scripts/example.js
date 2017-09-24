@@ -110,6 +110,9 @@ var CommentForm = React.createClass({
   handleTextChange: function(e) {
     this.setState({text: e.target.value});
   },
+    shouldComponentUpdate(nextProps, nextState){
+      return !(this.state == nextState)
+    },
   handleSubmit: function(e) {
     e.preventDefault();
     this.setState({author: '', text: '', show: true});
@@ -168,6 +171,7 @@ var PICTURES = React.createClass({
             result[n] = images[x in taken ? taken[x] : x];
             taken[x] = --len;
         }
+
         const imagesElements = result.map(this.createListItem);
         return(
             <div>
@@ -179,7 +183,7 @@ var PICTURES = React.createClass({
     createListItem(e){
       return (
           <div>
-            <img src={`${e}.jpg`} />
+            <img src={`${e}.jpg`} width="300px"/>
             <form target="_self" method="GET">
 
               <button>Yes</button>
