@@ -76,7 +76,10 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        <h1>L I T</h1>
+        <h1>Y O N</h1>
+        <h4>Instructions: Indicate whether you like the image by selecting yes or no.
+                <br/>
+            See how your results compare with your friends! </h4>
         {/*<CommentList data={this.state.data} />*/}
         <CommentForm onCommentSubmit={this.handleCommentSubmit}
                     />
@@ -145,7 +148,7 @@ var CommentForm = React.createClass({
               onChange={this.handleTextChange}
           />
           <input type="submit" value="Start" />
-          </form> : "Hello"}
+          </form> : ""}
 
             {console.log(this.state.show)}
             {this.state.show ? <PICTURES/> : ""}
@@ -157,6 +160,14 @@ var CommentForm = React.createClass({
 
 
 var PICTURES = React.createClass({
+
+    onClickFunction: function(e){
+        alert("30% of your friends selected this answer!");
+    },
+
+    noAnswer: function(e){
+        alert("50% of your friends selected this answer")
+    },
 
     render: function() {
         const images = ['../pictures/algorithms', '../pictures/arianagrande', '../pictures/beerbike', '../pictures/bieber',
@@ -191,12 +202,11 @@ var PICTURES = React.createClass({
       return (
           <div>
             <img src={`${e}.jpg`} width="300px"/>
-            <form target="_self" method="GET">
 
-              <button>Yes</button>
-              <button>No</button>
+                  <button onClick={this.onClickFunction}> Yes </button>
+                  <button onClick={this.noAnswer}> No </button>
 
-            </form>
+
           </div>
       )
     }
