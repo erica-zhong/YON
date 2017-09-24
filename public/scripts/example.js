@@ -148,10 +148,19 @@ var CommentForm = React.createClass({
 });
 
 var PICTURES = React.createClass({
+
     render: function() {
-        return (
-            <div>PICS GO HERE</div>
-        );
+        const images = ['../pictures/algorithms'];
+        const imagesElements = images.map( e => {
+            return (
+                <img src={`${e}.jpg`} width="250px" />
+            )
+        });
+        return(
+            <div>
+                {imagesElements}
+            </div>
+        )
     }
 });
 
