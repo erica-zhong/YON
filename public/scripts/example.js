@@ -10,9 +10,6 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
-import {StarRating} from "react-star-rating";
-
 var Comment = React.createClass({
   rawMarkup: function() {
     var md = new Remarkable();
@@ -152,7 +149,14 @@ var CommentForm = React.createClass({
 var PICTURES = React.createClass({
 
     render: function() {
-        const images = ['/Users/clara.tian/Desktop/hackrice/public/pictures/adamdriver.jpeg']
+        const images = ['../pictures/algorithms', '../pictures/arianagrande', '../pictures/beerbike', '../pictures/bieber',
+        '../pictures/carrotcake', '../pictures/danwallach', '../pictures/georgestrait', '../pictures/harrystyles',
+        '../pictures/indianfood', '../pictures/iphonex', '../pictures/jfk', '../pictures/kale', '../pictures/lebron',
+        '../pictures/lifting', '../pictures/luay', '../pictures/mcdonalds', '../pictures/meghantrainor',
+        '../pictures/nickiminaj', '../pictures/oatmealraisin', '../pictures/olive', '../pictures/pinpizza', '../pictures/putin',
+        '../pictures/romcom', '../pictures/running', '../pictures/sandygrease', '../pictures/sansastark', '../pictures/scifi',
+        '../pictures/sushi', '../pictures/swimming', '../pictures/tequila', '../pictures/thresher', '../pictures/toddler',
+        '../pictures/travisscott', '../pictures/trump', '../pictures/viterbi', '../pictures/western', '../pictures/zuckerberg']
         const imagesElements = images.map(this.createListItem);
         return(
             <div>
@@ -167,9 +171,8 @@ var PICTURES = React.createClass({
             <img src={`${e}.jpg`} />
             <form target="_self" method="GET">
 
-              <StarRating name="react-star-rating" caption="Rate this image!" totalStars={5} />
-
-              <button type="submit" className="btn btn-primary">Submit Rating</button>
+              <button>Affirmative</button>
+              <button>Negative</button>
 
             </form>
           </div>
