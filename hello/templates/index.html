@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>VIBE</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,vietnamese,latin-ext' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css" type="text/css">
+  <link rel="stylesheet" href="css/skeleton.css" type="text/css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+</head>
+
+<body></body>
+<template name="startMenu">
+  <div class="main-menu">
+    <h4>VIBE</h4>
+
+    <div class="button-container">
+      <button id="btn-new-game">NEW GAME</button>
+      <button id="btn-join-game">JOIN GAME</button>
+    </div>
+  </div>
+</template>
+
+<template name="lobby">
+  <div class="access-code">
+    ACCESS CODE:<span>{{ game.accessCode }}</span>
+  </div>
+
+
+  <ol class="lobby-player-list">
+    {{#each players }}
+      <li>
+        {{ name }}
+        {{#if isCurrent }}
+          <a href="#" class="btn-edit-player" data-player-id="{{ _id }}">
+            <i class="fa fa-pencil"></i>
+          </a>
+        {{else}}
+          <a href="#" class="btn-remove-player" data-player-id="{{ _id }}">
+            <i class="fa fa-close"></i>
+          </a>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ol>
+
+  <div class="button-container">
+      <button class="btn-leave">LEAVE</button>
+      <button class="btn-start">START</button>
+  </div>
+</template>
+
+<template name="gameView">
+  <h4><a class="game-countdown {{#if gameFinished }}finished{{/if}} {{#if game.paused }}paused{{/if}}">{{{ timeRemaining }}}</a></h4>
+
+
+  <h5>PLAYERS</h5>
+  <ul class="ingame-player-list">
+    {{#each players }}
+      <li>
+        <div class="player-name">
+          {{ name }}
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+
+  <div class="button-container">
+      <button class="yes">YES</button>
+        <button class="no">NO</button>
+  </div>
+  <div class="button-container">
+      <button class="btn-leave">LEAVE</button>
+        <button class="btn-end">END</button>
+  </div>
+</template>
+
+<template name="resultView">
+
+</template>
+<template name="createGame">
+  <form id="create-game">
+    <div class="">
+      <input type="text" id="player-name" name="playerName" placeholder='ENTER YOUR NAME'>
+
+      <div class="button-container">
+          <button class="btn-back">BACK</button>
+          <button class="submit">CREATE GAME</button>
+      </div>
+    </div>
+  </form>
+</template>
+
+<template name="joinGame">
+  <form id="join-game">
+    <div>
+      <input autocorrect="off" autocapitalize="off" type="text" id="access-code" name="accessCode" placeholder='ENTER ACCESS CODE'>
+      <input type="text" id="player-name" name="playerName" placeholder='ENTER YOUR NAME'>
+
+      <div class="button-container">
+          <button class="btn-back">BACK</button>
+          <button class="submit">CREATE GAME</button>
+      </div>
+    </div>
+  </form>
+</template>
+
+</html>
