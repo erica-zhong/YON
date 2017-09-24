@@ -10,7 +10,6 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
 var Comment = React.createClass({
   rawMarkup: function() {
     var md = new Remarkable();
@@ -114,6 +113,9 @@ var CommentForm = React.createClass({
   handleTextChange: function(e) {
     this.setState({text: e.target.value});
   },
+    shouldComponentUpdate(nextProps, nextState){
+      return !(this.state == nextState)
+    },
   handleSubmit: function(e) {
     e.preventDefault();
     this.setState({author: '', code: '', show: true, form: false});
@@ -157,17 +159,46 @@ var CommentForm = React.createClass({
 var PICTURES = React.createClass({
 
     render: function() {
-        const images = ['../pictures/algorithms'];
-        const imagesElements = images.map( e => {
-            return (
-                <img src={`${e}.jpg`} width="250px" />
-            )
-        });
+        const images = ['../pictures/algorithms', '../pictures/arianagrande', '../pictures/beerbike', '../pictures/bieber',
+        '../pictures/carrotcake', '../pictures/danwallach', '../pictures/georgestrait', '../pictures/harrystyles',
+        '../pictures/indianfood', '../pictures/iphonex', '../pictures/jfk', '../pictures/kale', '../pictures/lebron',
+        '../pictures/lifting', '../pictures/luay', '../pictures/mcdonalds', '../pictures/meghantrainor',
+        '../pictures/nickiminaj', '../pictures/oatmealraisin', '../pictures/olive', '../pictures/pinpizza', '../pictures/putin',
+        '../pictures/romcom', '../pictures/running', '../pictures/sandygrease', '../pictures/sansastark', '../pictures/scifi',
+        '../pictures/sushi', '../pictures/swimming', '../pictures/tequila', '../pictures/thresher', '../pictures/toddler',
+        '../pictures/travisscott', '../pictures/trump', '../pictures/viterbi', '../pictures/western', '../pictures/zuckerberg',
+        '../pictures/coffee', '../pictures/edm', '../pictures/hiking', '../pictures/ski']
+
+        var n = 12
+        var result = new Array(12),
+            len = images.length,
+            taken = new Array(len);
+        while (n--) {
+            var x = Math.floor(Math.random() * len);
+            result[n] = images[x in taken ? taken[x] : x];
+            taken[x] = --len;
+        }
+
+        const imagesElements = result.map(this.createListItem);
         return(
             <div>
                 {imagesElements}
             </div>
         )
+    },
+
+    createListItem(e){
+      return (
+          <div>
+            <img src={`${e}.jpg`} width="300px"/>
+            <form target="_self" method="GET">
+
+              <button>Yes</button>
+              <button>No</button>
+
+            </form>
+          </div>
+      )
     }
 });
 
