@@ -77,7 +77,9 @@ var CommentBox = React.createClass({
     return (
       <div className="commentBox">
         <h1>Y O N</h1>
-        <h4>Instructions: Indicate whether you like the image by selecting yes or no.</h4>
+        <h4>Instructions: Indicate whether you like the image by selecting yes or no.
+                <br/>
+            See how your results compare with your friends! </h4>
         {/*<CommentList data={this.state.data} />*/}
         <CommentForm onCommentSubmit={this.handleCommentSubmit}
                     />
@@ -146,7 +148,7 @@ var CommentForm = React.createClass({
               onChange={this.handleTextChange}
           />
           <input type="submit" value="Start" />
-          </form> : "Hello"}
+          </form> : ""}
 
             {console.log(this.state.show)}
             {this.state.show ? <PICTURES/> : ""}
@@ -158,11 +160,13 @@ var CommentForm = React.createClass({
 
 
 var PICTURES = React.createClass({
-    getInitialState: function() {
-        return {percentage: false};
+
+    onClickFunction: function(e){
+        alert("30% of your friends selected this answer!");
     },
-    change: function(e) {
-        this.setState({percentage: true});
+
+    noAnswer: function(e){
+        alert("50% of your friends selected this answer")
     },
 
     render: function() {
@@ -198,16 +202,11 @@ var PICTURES = React.createClass({
       return (
           <div>
             <img src={`${e}.jpg`} width="300px"/>
-              {this.state.percentage ? "10%":
-                  <div>
-                  <button onClick={this.change}> Yes </button>
-                  <button> No </button>
-                  </div>
-              }
 
-              <button>Yes</button>
-              <button>No</button>
-            </form>
+                  <button onClick={this.onClickFunction}> Yes </button>
+                  <button onClick={this.noAnswer}> No </button>
+
+
           </div>
       )
     }
