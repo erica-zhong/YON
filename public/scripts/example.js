@@ -150,10 +150,10 @@ var CommentForm = React.createClass({
 var PICTURES = React.createClass({
 
     render: function() {
-        const images = ['/Users/clara.tian/Desktop/hackrice/public/pictures/adamdriver.jpeg']
+        const images = ['../pictures/algorithms'];
         const imagesElements = images.map( e => {
             return (
-                <img src={`${e}.jpg`} />
+                <img src={`${e}.jpg`} width="250px" />
             )
         });
         return(
