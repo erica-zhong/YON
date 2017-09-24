@@ -156,8 +156,19 @@ var PICTURES = React.createClass({
         '../pictures/nickiminaj', '../pictures/oatmealraisin', '../pictures/olive', '../pictures/pinpizza', '../pictures/putin',
         '../pictures/romcom', '../pictures/running', '../pictures/sandygrease', '../pictures/sansastark', '../pictures/scifi',
         '../pictures/sushi', '../pictures/swimming', '../pictures/tequila', '../pictures/thresher', '../pictures/toddler',
-        '../pictures/travisscott', '../pictures/trump', '../pictures/viterbi', '../pictures/western', '../pictures/zuckerberg']
-        const imagesElements = images.map(this.createListItem);
+        '../pictures/travisscott', '../pictures/trump', '../pictures/viterbi', '../pictures/western', '../pictures/zuckerberg',
+        '../pictures/coffee', '../pictures/edm', '../pictures/hiking', '../pictures/ski']
+
+        var n = 12
+        var result = new Array(12),
+            len = images.length,
+            taken = new Array(len);
+        while (n--) {
+            var x = Math.floor(Math.random() * len);
+            result[n] = images[x in taken ? taken[x] : x];
+            taken[x] = --len;
+        }
+        const imagesElements = result.map(this.createListItem);
         return(
             <div>
                 {imagesElements}
@@ -171,8 +182,8 @@ var PICTURES = React.createClass({
             <img src={`${e}.jpg`} />
             <form target="_self" method="GET">
 
-              <button>Affirmative</button>
-              <button>Negative</button>
+              <button>Yes</button>
+              <button>No</button>
 
             </form>
           </div>
