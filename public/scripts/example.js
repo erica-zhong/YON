@@ -124,17 +124,16 @@ var CommentForm = React.createClass({
   },
   render: function() {
     return (
-    <div>
-    {this.state.form ? <form className="commentForm" onSubmit={this.handleSubmit}>
-    <input
+        <div>
+        {this.state.form ? <form className="commentForm" onSubmit={this.handleSubmit}>
+      <input
       type="text"
-      placeholder="Enter your name"
+      placeholder="Enter name"
       value={this.state.author}
       onChange={this.handleAuthorChange}
       />
       <input type="submit" value="Start" />
-          </form> :
-      "Rate these pictures" + value }
+          </form> : "hello Michelle"}
 
             {console.log(this.state.show)}
             {this.state.show ? <PICTURES/> : ""}
