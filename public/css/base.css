@@ -79,7 +79,8 @@ input[type="submit"] {
   letter-spacing: .1rem;
   text-transform: uppercase;
   white-space: nowrap;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 input[type="submit"]:hover {
   background-color: #abaeb2;
@@ -94,7 +95,7 @@ input[type="text"], textarea {
   font-size: 11px;
   font-weight: 600;
   text-decoration: none;
-  cursor: pointer;
+  cursor: default;
   border: 1px solid lightgrey;
   height: 38px;
   line-height: 38px;
@@ -114,4 +115,28 @@ img {
   margin: auto;
 }
 
+button {
+  display: inline-block;
+  background-color: transparent;
+  border-radius: 0;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #bbb;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 30px;
+  margin: 10px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #abaeb2;
+}
 

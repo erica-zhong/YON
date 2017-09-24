@@ -76,7 +76,8 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        <h1>L I T</h1>
+        <h1>Y O N</h1>
+        <h4>Instructions: Indicate whether you like the image by selecting yes or no.</h4>
         {/*<CommentList data={this.state.data} />*/}
         <CommentForm onCommentSubmit={this.handleCommentSubmit}
                     />
@@ -204,7 +205,9 @@ var PICTURES = React.createClass({
                   </div>
               }
 
-
+              <button>Yes</button>
+              <button>No</button>
+            </form>
           </div>
       )
     }
