@@ -11,6 +11,8 @@
  */
 
 
+import {StarRating} from "react-star-rating";
+
 var Comment = React.createClass({
   rawMarkup: function() {
     var md = new Remarkable();
@@ -150,17 +152,28 @@ var CommentForm = React.createClass({
 var PICTURES = React.createClass({
 
     render: function() {
-        const images = ['../pictures/algorithms'];
-        const imagesElements = images.map( e => {
-            return (
-                <img src={`${e}.jpg`} width="250px" />
-            )
-        });
+        const images = ['/Users/clara.tian/Desktop/hackrice/public/pictures/adamdriver.jpeg']
+        const imagesElements = images.map(this.createListItem);
         return(
             <div>
                 {imagesElements}
             </div>
         )
+    },
+
+    createListItem(e){
+      return (
+          <div>
+            <img src={`${e}.jpg`} />
+            <form target="_self" method="GET">
+
+              <StarRating name="react-star-rating" caption="Rate this image!" totalStars={5} />
+
+              <button type="submit" className="btn btn-primary">Submit Rating</button>
+
+            </form>
+          </div>
+      )
     }
 });
 
