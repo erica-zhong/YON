@@ -157,6 +157,12 @@ var CommentForm = React.createClass({
 
 
 var PICTURES = React.createClass({
+    getInitialState: function() {
+        return {percentage: false};
+    },
+    change: function(e) {
+        this.setState({percentage: true});
+    },
 
     render: function() {
         const images = ['../pictures/algorithms', '../pictures/arianagrande', '../pictures/beerbike', '../pictures/bieber',
@@ -191,12 +197,14 @@ var PICTURES = React.createClass({
       return (
           <div>
             <img src={`${e}.jpg`} width="300px"/>
-            <form target="_self" method="GET">
+              {this.state.percentage ? "10%":
+                  <div>
+                  <button onClick={this.change}> Yes </button>
+                  <button> No </button>
+                  </div>
+              }
 
-              <button>Yes</button>
-              <button>No</button>
 
-            </form>
           </div>
       )
     }
