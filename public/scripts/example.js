@@ -76,7 +76,7 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        <h1>Comments</h1>
+        <h1>L I T</h1>
         {/*<CommentList data={this.state.data} />*/}
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
@@ -103,7 +103,7 @@ var CommentList = React.createClass({
 
 var CommentForm = React.createClass({
   getInitialState: function() {
-    return {author: '', text: '', show: false};
+    return {author: '', text: '', show: false, form: true};
   },
   handleAuthorChange: function(e) {
     this.setState({author: e.target.value});
@@ -113,39 +113,37 @@ var CommentForm = React.createClass({
   },
   handleSubmit: function(e) {
     e.preventDefault();
-    this.setState({author: '', text: '', show: true});
+    this.setState({author: '', text: '', show: true, form:false});
     var author = this.state.author.trim();
     var text = this.state.text.trim();
     if (!text || !author) {
       return;
     }
-    this.props.onCommentSubmit({author: author, text: text, show:true});
+    this.props.onCommentSubmit({author: author, text: text, show:true, form:false});
 
   },
   render: function() {
     return (
-        <div>
-      <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Your name"
-          value={this.state.author}
-          onChange={this.handleAuthorChange}
-        />
-        <input
-          type="text"
-          placeholder="Say something..."
-          value={this.state.text}
-          onChange={this.handleTextChange}
-        />
-        <input type="submit" value="Post" />
-      </form>
+    <div>
+    {this.state.form ? <form className="commentForm" onSubmit={this.handleSubmit}>
+    <input
+      type="text"
+      placeholder="Enter your name"
+      value={this.state.author}
+      onChange={this.handleAuthorChange}
+      />
+      <input type="submit" value="Start" />
+          </form> :
+      "Rate these pictures" + value }
+
             {console.log(this.state.show)}
             {this.state.show ? <PICTURES/> : ""}
+
         </div>
     );
   }
 });
+
 
 var PICTURES = React.createClass({
 
