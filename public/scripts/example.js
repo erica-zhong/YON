@@ -148,10 +148,19 @@ var CommentForm = React.createClass({
 });
 
 var PICTURES = React.createClass({
+
     render: function() {
-        return (
-            <div>PICS GO HERE</div>
-        );
+        const images = ['/Users/clara.tian/Desktop/hackrice/public/pictures/adamdriver.jpeg']
+        const imagesElements = images.map( e => {
+            return (
+                <img src={`${e}.jpg`} />
+            )
+        });
+        return(
+            <div>
+                {imagesElements}
+            </div>
+        )
     }
 });
 
