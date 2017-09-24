@@ -12,8 +12,6 @@ db.sqlite3
 
 *.map
 
-*.json
-
 *.md
 
 node_modules/fbjs/lib/
