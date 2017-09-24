@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate</title>
+    <script>
+        var random_images_array = ["adamdriver.jpeg", "arianagrande.jpg", "bieber.jpg", "cristianoronaldo.jpg",
+        "hansolo.jpg", "harrystyles.jpg", "jaime.jpg", "jfk.jpg", "lebron.jpg", "leslieknope.jpg", nickiminaj.jpg",
+        "sansastark.jpg", "stephencolbert.jpeg", "taylorswift.jpg", "trump.jpg", "zuckerberg.jpg"];
+
+    function getRandomImage(imgAr, path) {
+    path = path || "/Users/clara.tian/Desktop/hackrice/famous";
+    var num = Math.floor( Math.random() * imgAr.length );
+    var img = imgAr[ num ];
+    var imgStr = '<img src="' + path + img + '" alt = "">';
+    document.write(imgStr); document.close();
+    }
+
+    <script type="text/javascript">getRandomImage(random_images_array);</script>
+    <script type="text/javascript">getRandomImage(random_images_array, '/images/');</script>
+    </script>
+
+
+</head>
+<body>
+
+
+</body>
+</html>
