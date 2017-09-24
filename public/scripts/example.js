@@ -77,6 +77,7 @@ var CommentBox = React.createClass({
     return (
       <div className="commentBox">
         <h1>Y O N</h1>
+        <h4>Instructions: Indicate whether you like the image by selecting yes or no.</h4>
         {/*<CommentList data={this.state.data} />*/}
         <CommentForm onCommentSubmit={this.handleCommentSubmit}
                     />
