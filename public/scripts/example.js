@@ -51,9 +51,7 @@ var CommentBox = React.createClass({
     // not use Date.now() for this and would have a more robust system in place.
     comment.id = Date.now();
     var newComments = comments.concat([comment]);
-    this.setState({
-        person: comment
-    });
+
     this.setState({data: newComments});
     $.ajax({
       url: this.props.url,
@@ -81,7 +79,8 @@ var CommentBox = React.createClass({
       <div className="commentBox">
         <h1>L I T</h1>
         {/*<CommentList data={this.state.data} />*/}
-        <CommentForm onCommentSubmit={this.handleCommentSubmit} />
+        <CommentForm onCommentSubmit={this.handleCommentSubmit}
+                    />
       </div>
     );
   }
@@ -105,6 +104,7 @@ var CommentList = React.createClass({
 });
 
 var CommentForm = React.createClass({
+
   getInitialState: function() {
     return {author: '', text: '', show: false, form: true};
   },
@@ -116,27 +116,34 @@ var CommentForm = React.createClass({
   },
   handleSubmit: function(e) {
     e.preventDefault();
-    this.setState({author: '', text: '', show: true, form:false});
+    this.setState({author: '', code: '', show: true, form: false});
     var author = this.state.author.trim();
     var text = this.state.text.trim();
     if (!text || !author) {
       return;
     }
-    this.props.onCommentSubmit({author: author, text: text, show:true, form:false});
+    this.props.onCommentSubmit({author: author, text: text, show:true, form: false});
 
   },
   render: function() {
     return (
-        <div>
-        {this.state.form ? <form className="commentForm" onSubmit={this.handleSubmit}>
-      <input
+    <div>
+
+    {this.state.form ? <form className="commentForm" onSubmit={this.handleSubmit}>
+    <input
       type="text"
       placeholder="Enter name"
       value={this.state.author}
       onChange={this.handleAuthorChange}
       />
-      <input type="submit" value="Start" />
-          </form> : "hello Michelle"}
+          <input
+              type="text"
+              placeholder="Access Code"
+              value={this.state.text}
+              onChange={this.handleTextChange}
+          />
+          <input type="submit" value="Start" />
+          </form> : "Hello"}
 
             {console.log(this.state.show)}
             {this.state.show ? <PICTURES/> : ""}
