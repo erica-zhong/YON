@@ -10,6 +10,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+
 var Comment = React.createClass({
   rawMarkup: function() {
     var md = new Remarkable();
@@ -76,7 +77,7 @@ var CommentBox = React.createClass({
     return (
       <div className="commentBox">
         <h1>Comments</h1>
-        <CommentList data={this.state.data} />
+        {/*<CommentList data={this.state.data} />*/}
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );
@@ -102,7 +103,7 @@ var CommentList = React.createClass({
 
 var CommentForm = React.createClass({
   getInitialState: function() {
-    return {author: '', text: ''};
+    return {author: '', text: '', show: false};
   },
   handleAuthorChange: function(e) {
     this.setState({author: e.target.value});
@@ -112,16 +113,18 @@ var CommentForm = React.createClass({
   },
   handleSubmit: function(e) {
     e.preventDefault();
+    this.setState({author: '', text: '', show: true});
     var author = this.state.author.trim();
     var text = this.state.text.trim();
     if (!text || !author) {
       return;
     }
-    this.props.onCommentSubmit({author: author, text: text});
-    this.setState({author: '', text: ''});
+    this.props.onCommentSubmit({author: author, text: text, show:true});
+
   },
   render: function() {
     return (
+        <div>
       <form className="commentForm" onSubmit={this.handleSubmit}>
         <input
           type="text"
@@ -137,9 +140,22 @@ var CommentForm = React.createClass({
         />
         <input type="submit" value="Post" />
       </form>
+            {console.log(this.state.show)}
+            {this.state.show ? <PICTURES/> : ""}
+        </div>
     );
   }
 });
+
+var PICTURES = React.createClass({
+    render: function() {
+        return (
+            <div>PICS GO HERE</div>
+        );
+    }
+});
+
+
 
 ReactDOM.render(
   <CommentBox url="/api/comments" pollInterval={2000} />,
