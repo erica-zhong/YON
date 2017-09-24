@@ -16,7 +16,6 @@ db.sqlite3
 
 node_modules/fbjs/lib/
 
-node_modules/react-router-dom/es/
 
 node_modules/value-equal/umd/
 
@@ -26,4 +25,3 @@ node_modules/node-fetch/test/
 
 node_modules/\.bin/
 
-node_modules/react-router-dom/
