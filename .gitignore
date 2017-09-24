@@ -9,3 +9,23 @@ db.sqlite3
 *.xml
 
 *.iml
+
+*.map
+
+*.json
+
+*.md
+
+node_modules/fbjs/lib/
+
+node_modules/react-router-dom/es/
+
+node_modules/value-equal/umd/
+
+node_modules/core-js/
+
+node_modules/node-fetch/test/
+
+node_modules/\.bin/
+
+node_modules/react-router-dom/
